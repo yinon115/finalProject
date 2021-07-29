@@ -40,4 +40,16 @@ public class Employees {
     public String getRole() {
         return role;
     }
+
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", department=" + department +
+                ", role='" + role + '\'' +
+                ", preference=" + preference +
+                ", salary=" + salary +
+                '}';
+    }
 }

@@ -14,4 +14,15 @@ public class Department {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        String str= "Department{" +
+                "name='" + name + "the roles are\n";
+        for (int i=0; i<roles.size(); i++){
+            str+=roles.get(i).getName()+"\n";
+        }
+        return str;
+
+    }
 }
