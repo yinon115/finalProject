@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 public class View extends Application {
 
-    Button button;
 
     public void start(Stage primaryStage) throws Exception {
         GraphicalUI gui = new GraphicalUI();
