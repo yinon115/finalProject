@@ -88,8 +88,9 @@ public class View extends Application {
         //.......................Add Worker..................................//
         Label headline = new Label("Add worker");
         headline.setAlignment(Pos.CENTER);
-        Label lblname = new Label("Enter Full Name");
-        Label lbldate = new Label("");
+        Label lblname = new Label("Full Name:");
+        Label lbldate = new Label("Birthday:");
+
 
 
 

@@ -3,6 +3,7 @@ package Moodle;
 public class Employees {
     private String name;
     private String id;
+    private String birth;
     private Department department;
     private String role;
     private Preference preference;
