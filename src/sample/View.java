@@ -32,6 +32,8 @@ public class View extends Application {
         Scene changeRole =  new Scene(g3,350,350);
         Scene changeDep =  new Scene(g4,350,350);
         Scene profit =  new Scene(g5,350,350);
+
+
         //................................Menu.......................................//
         menuB.setSpacing(5);
         menuB.setPadding(new Insets(10));
@@ -82,9 +84,13 @@ public class View extends Application {
         menuB.getChildren().add(Bchangedep);
         menuB.getChildren().add(Bprofit);
         //.................................................................................//
+
+        //.......................Add Worker..................................//
         Label headline = new Label("Add worker");
         headline.setAlignment(Pos.CENTER);
-        g1.getChildren().add(headline);
+        Label lblname = new Label("Enter Full Name");
+        Label lbldate = new Label("");
+
 
 
 

@@ -21,6 +21,7 @@ public class Department {
                 "name='" + name + "the roles are\n";
         for (int i=0; i<roles.size(); i++){
             str+=roles.get(i).getName()+"\n";
+            str+= roles.get(i).toString();
         }
         return str;
 

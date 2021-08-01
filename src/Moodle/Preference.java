@@ -1,5 +1,7 @@
 package Moodle;
 
-public class Preference {
+import java.io.Serializable;
 
+public enum Preference implements Serializable {
+    EARLY, LATE , REGULAR , HOME
 }
