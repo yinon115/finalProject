@@ -1,5 +1,5 @@
 package Moodle;
 
-public class EmployeeHour extends Employees{
-
-}
+//public class EmployeeHour extends Employees{
+//
+//}

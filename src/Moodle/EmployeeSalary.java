@@ -1,4 +1,4 @@
 package Moodle;
 
-public class EmployeeSalary extends Employees{
-}
+//public class EmployeeSalary extends Employees{
+//}
