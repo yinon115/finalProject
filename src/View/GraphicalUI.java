@@ -1,4 +1,4 @@
-package sample;
+package View;
 import javax.swing.*;
 import java.util.Scanner;
 
