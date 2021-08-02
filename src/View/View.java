@@ -45,6 +45,20 @@ public class View extends Application {
                 primaryStage.setScene(addworker);
             }
         });
+        Button Baddrole =  new Button("Add role");
+        Baddworker.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                primaryStage.setScene(addworker);
+            }
+        });
+        Button Badddept =  new Button("Add departement");
+        Baddworker.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                primaryStage.setScene(addworker);
+            }
+        });
         Button BshowWorker = new Button("Show All Workers");
         BshowWorker.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -84,11 +98,9 @@ public class View extends Application {
         menuB.getChildren().add(Bchangedep);
         menuB.getChildren().add(Bprofit);
         //.................................................................................//
-//bgfhgdryrjhnytmhnksrythnmsklnkotgrnhklortgnhklgtnklorgthns
-//uytjytdfhhtrhrytfh
+
         //.......................Add Worker..................................//
         Label headline = new Label("Add Worker");
-        Label headline = new Label("Add Role ");
         headline.setAlignment(Pos.CENTER);
         Label lblname = new Label("Full Name:");
         Label lbldate = new Label("Birthday:");
