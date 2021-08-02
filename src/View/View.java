@@ -31,6 +31,8 @@ public class View extends Application {
         Scene changeRole =  new Scene(g3,350,350);
         Scene changeDep =  new Scene(g4,350,350);
         Scene profit =  new Scene(g5,350,350);
+        primaryStage.setScene(menu);
+        primaryStage.show();
 
         //................................Menu.......................................//
         menuB.setSpacing(5);
@@ -247,9 +249,6 @@ public class View extends Application {
         g4.setVgap(10);
         g4.setAlignment(Pos.TOP_CENTER);
         //......................................................................................//
-
-        primaryStage.setScene(menu);
-        primaryStage.show();
     }
 //
 

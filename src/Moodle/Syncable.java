@@ -1,5 +1,5 @@
 package Moodle;
 
-public interface Sync {
+public interface Syncable {
     public boolean isSync();
 }
