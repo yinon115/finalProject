@@ -1,10 +1,13 @@
 package Moodle;
 
+import java.time.LocalTime;
 import java.util.Vector;
 
 public class Department {
     private String name;
     private Vector<Role> roles;
+    private LocalTime startTime;
+    private LocalTime finishTime;
 
     public Department (String name){
         this.name = name;
@@ -13,6 +16,18 @@ public class Department {
 
     public String getName() {
         return name;
+    }
+
+    public Vector<Role> getRoles() {
+        return roles;
+    }
+
+    public LocalTime getFinishTime() {
+        return finishTime;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
     }
 
     @Override
