@@ -87,20 +87,31 @@ public class View extends Application {
                 primaryStage.setScene(profit);
             }
         });
+        Button BaddDep = new Button("Add Department");
+        BaddDep.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                primaryStage.setScene(addDep);
+            }
+        });
         Baddworker.setPrefWidth(350);
         BshowWorker.setPrefWidth(350);
         Bchangedep.setPrefWidth(350);
         Bchangerole.setPrefWidth(350);
         Bprofit.setPrefWidth(350);
+        BaddDep.setPrefWidth(350);
         menuB.getChildren().add(Baddworker);
+        menuB.getChildren().add(BaddDep);
         menuB.getChildren().add(BshowWorker);
         menuB.getChildren().add(Bchangerole);
         menuB.getChildren().add(Bchangedep);
         menuB.getChildren().add(Bprofit);
         //.................................................................................//
-
+//bgfhgdryrjhnytmhnksrythnmsklnkotgrnhklortgnhklgtnklorgthns
+//uytjytdfhhtrhrytfh
         //.......................Add Worker..................................//
         Label headline = new Label("Add Worker");
+        Label headline = new Label("Add Role ");
         headline.setAlignment(Pos.CENTER);
         Label lblname = new Label("Full Name:");
         Label lbldate = new Label("Birthday:");
@@ -165,9 +176,13 @@ public class View extends Application {
         });
         //..................................................................//
 
+
+
+
+
         //.......................Change Preference On Role..................................//
         Label prefHeadline = new Label("Please choose the new prefrence:");
-        headline.setAlignment(Pos.CENTER);
+        prefHeadline.setAlignment(Pos.CENTER);
         ToggleGroup tglPrefMenu = new ToggleGroup();
         g3.getChildren().add(prefHeadline);
         prefHeadline.setAlignment(Pos.TOP_CENTER);
@@ -227,7 +242,7 @@ public class View extends Application {
 
         //...........................Change Preference On Department............................//
         Label depHeadline = new Label("Please choose the new department:");
-        headline.setAlignment(Pos.CENTER);
+        depHeadline.setAlignment(Pos.CENTER);
         ToggleGroup tglDepMenu = new ToggleGroup();
         ComboBox<String> c4dep = new ComboBox<String>();
         g4.getChildren().add(prefHeadline);
