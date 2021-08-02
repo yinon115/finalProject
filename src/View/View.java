@@ -142,6 +142,29 @@ public class View extends Application {
         });
         //..................................................................//
 
+        //.......................Add Role..................................//
+        Label roleHeadline = new Label("Add Role");
+        roleHeadline.setAlignment(Pos.CENTER);
+        Label lblRoleName = new Label("Role's name:");
+        TextField txtRoleName= new TextField();
+        Button cancel = new Button("Cancel");
+        Button submit = new Button("Submit");
+        g1.setPadding(new Insets(10));
+        g1.setHgap(10);
+        g1.setVgap(10);
+        g1.add(headline,0,0);
+        g1.add(lblRoleName,0,1);
+        g1.add(txtRoleName,1,1);
+        g1.add(cancel,2,14);
+        g1.add(submit,3,14);
+        cancel.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                primaryStage.setScene(menu);
+            }
+        });
+        //..................................................................//
+
         //.......................Change Preference On Role..................................//
         Label prefHeadline = new Label("Please choose the new prefrence:");
         headline.setAlignment(Pos.CENTER);
