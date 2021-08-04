@@ -1,32 +1,52 @@
 package Moodle;
 
-import java.time.LocalTime;
-
 public class Employees {
     protected String name;
     protected String id;
-    protected int yearofbirth;
+    protected int yearOfBirth;
     protected Department department;
     protected Role role;
     protected Preference preference;
     protected double salary;
-    protected LocalTime favoritestart;
-    protected LocalTime favoritefinish;
+    protected int favoritestart;
+    protected int favoritefinish;
 
-    public Employees (String name,String id,Department department,int yearofbirth, Role role, Preference preference,int salary,LocalTime favoritestart){
+    public Employees (String name, String id, Department department, int yearOfBirth, Role role, Preference preference, int salary, int favoritestart) throws Exception {
         this.department=department;
-        this.id=id;
+        setId(id);
+        setBirthyear(yearOfBirth);
         this.name=name;
-        this.yearofbirth=yearofbirth;
         this.role=role;
         this.preference=preference;
         this.salary=salary;
         this.favoritestart=favoritestart;
-        this.favoritefinish=favoritestart.plusHours(9);
+        this.favoritefinish=favoritestart+9;
     }
 
     public String getName() {
         return name;
+    }
+
+    private boolean checkId(String id) {
+        for (int i = 0; i < id.length(); i++){
+            if (id.charAt(i) < 0 || id.charAt(i) > 9) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setId(String id)throws Exception {
+        if (id.length() != 9 && !checkId(id) ){
+            throw new Exception("enter valid id");
+        }
+        this.id = id;
+    }
+    public void setBirthyear(int birthYear) throws Exception {
+        if ( birthYear < 0 ) {
+            throw new Exception ("Enter Valid Birth Year");
+        }
+        this.yearOfBirth = birthYear;
     }
 
     public Department getDepartment() {
@@ -49,7 +69,7 @@ public class Employees {
         return role;
     }
 
-    public double calculateSalaryIfNotChangable() {
+    public double unchangeSalary() {
         if (preference.equals(Preference.REGULAR)) {
             double salaryy = 9 * 0.2 * 10;
             return salaryy;
@@ -57,13 +77,13 @@ public class Employees {
             double salaryy = -1 * 0.2 * 9 * 10;
             return salaryy;
         } else if (preference.equals(Preference.EARLY)) {
-            int calculateGoodTime = Math.abs(department.getStartTime().getHour() - favoritestart.getHour());
-            double salaryFromGoodTime = 0.2 * 9 * 10;
-            int calculateRegularTime = 9 - Math.abs(calculateGoodTime);
-            double salaryFromRegularTime = 10 * calculateRegularTime;
-            return salaryFromGoodTime + salaryFromRegularTime;
+            int profitTime = Math.abs(department.getStartTime() - favoritestart);
+            double profitTimeSalary = 0.2 * 9 * 10;
+            int regularTime = 9 - Math.abs(profitTime);
+            double regularTimeSalary = 10 * regularTime;
+            return profitTimeSalary + regularTimeSalary;
         } else {
-            int calculateGoodTime = Math.abs(favoritestart.getHour() - department.getStartTime().getHour());
+            int calculateGoodTime = Math.abs(favoritestart - department.getStartTime());
             double salaryFromGoodTime = 0.2 * 9 * 10;
             int calculateRegularTime = 9 - Math.abs(calculateGoodTime);
             double salaryFromRegularTime = calculateRegularTime * 10;
@@ -76,22 +96,22 @@ public class Employees {
         if (preference.equals(Preference.HOME))
             return -1 * 9 * 0.2 * 10;
          else if (preference.equals(Preference.REGULAR)) {
-            int calculateBadTime = Math.abs(department.getStartTime().getHour() - favoritestart.getHour());
+            int calculateBadTime = Math.abs(department.getStartTime() - favoritestart);
             double calculateBadSalary = -1 * 0.2 * calculateBadTime * 10;
             int calculateRegularTime = 9 - calculateBadTime;
             double calculateRegularSalary = calculateRegularTime * 10;
             return calculateBadSalary + calculateRegularSalary;
         }
          else if (preference.equals(Preference.EARLY)) {
-            if (department.getStartTime().getHour() < 8) {
-                int calculateGoodTime = Math.abs(8 - department.getStartTime().getHour());
+            if (department.getStartTime() < 8) {
+                int calculateGoodTime = Math.abs(8 - department.getStartTime());
                 double calculateGoodSalary = calculateGoodTime * 0.2 * 10;
                 int calculateRegularTime = 9 - calculateGoodTime;
                 double calculateRegularSalary = calculateRegularTime * 10;
                 return calculateGoodSalary + calculateRegularSalary;
             }
-            else if (department.getStartTime().getHour() >= 8) {
-                int calculateBadTime = Math.abs(department.getStartTime().getHour() - favoritestart.getHour());
+            else if (department.getStartTime() >= 8) {
+                int calculateBadTime = Math.abs(department.getStartTime() - favoritestart);
                 double calculateBadSalary = calculateBadTime * -1 * 0.2 * 10;
                 int calculateRegularTime = 9 - calculateBadTime;
                 double calculateRegularSalary = calculateRegularTime * 10;
@@ -99,14 +119,14 @@ public class Employees {
             }
         }
          else if (preference.equals(Preference.LATE)) {
-            if (department.getStartTime().getHour() >= 8) {
-                int calculateGoodTime = Math.abs(department.getStartTime().getHour() - favoritestart.getHour());
+            if (department.getStartTime() >= 8) {
+                int calculateGoodTime = Math.abs(department.getStartTime() - favoritestart);
                 double calculateGoodSalary = calculateGoodTime * 0.2 * 10;
                 int calculateRegularTime = 9 - calculateGoodTime;
                 double calculateRegularSalary = calculateRegularTime * 10;
                 return calculateGoodSalary + calculateRegularSalary;
-            } else if (department.getStartTime().getHour() < 8) {
-                int calculateBadTime = Math.abs(8 - department.getStartTime().getHour());
+            } else if (department.getStartTime() < 8) {
+                int calculateBadTime = Math.abs(8 - department.getStartTime());
                 double calculateBadSalary = -1 * calculateBadTime * 0.2 * 10;
                 int calculateRegularTime = 9 - calculateBadTime;
                 double calculateRegularSalary = calculateRegularTime * 10;
@@ -127,9 +147,9 @@ public class Employees {
     public String toString() {
         return "name='" + name + '\'' +
                 ", id='" + id + '\'' +
-                ", department=" + department +
-                ", role='" + role + '\'' +
-                ", preference=" + preference +
+                ", department=" + department.getName() +
+                ", role='" + role.getName() + '\'' +
+                ", preference=" + preference.name() +
                 ", salary=" + salary;
     }
 }

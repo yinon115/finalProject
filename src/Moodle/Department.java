@@ -6,8 +6,8 @@ import java.util.Vector;
 public class Department {
     private String name;
     private Vector<Role> roles;
-    private LocalTime startTime;
-    private LocalTime finishTime;
+    private int startTime;
+    private int finishTime;
 
     public Department (String name){
         this.name = name;
@@ -22,12 +22,16 @@ public class Department {
         return roles;
     }
 
-    public LocalTime getFinishTime() {
+    public int getFinishTime() {
         return finishTime;
     }
 
-    public LocalTime getStartTime() {
+    public int getStartTime() {
         return startTime;
+    }
+
+    public void addRole (Role role){
+        roles.add(role);
     }
 
     @Override
